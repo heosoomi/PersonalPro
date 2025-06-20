@@ -1,0 +1,54 @@
+{
+    "name": "TycoonInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "8b6e5ad3-dd37-44fe-bb96-39f9eb475641",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "60412c89-9ad0-4194-8ef7-227616303419",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Swipe",
+                    "type": "Value",
+                    "id": "98971f3e-becf-4e07-83f7-d0042a41c326",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "50151636-4464-4ddb-8f0e-6a5d7c1051c2",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e844266-8e66-46b9-9357-5e856df3f3ad",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Swipe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
