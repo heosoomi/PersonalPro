@@ -11,7 +11,7 @@ public enum Rarity
     Legendary
 }
 
-[CreateAssetMenu(menuName = "Ingredient Data")]
+[CreateAssetMenu(menuName = "Datas/Ingredient Data")]
 public class IngredientData : ScriptableObject
 {
     [Header("기본정보")]

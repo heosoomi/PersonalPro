@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RecipeData")]
+[CreateAssetMenu(menuName = "Datas/RecipeData")]
 public class RecipeData : ScriptableObject
 {
     [Header("기본 정보")]
