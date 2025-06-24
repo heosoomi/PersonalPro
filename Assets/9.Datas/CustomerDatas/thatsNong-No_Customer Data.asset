@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: thatsNong-No_Customer Data
   m_EditorClassIdentifier: 
   customerName: "\uB18D\uB178"
-  icon: {fileID: 0}
-  LikeRecipes: []
+  icon: {fileID: 21300000, guid: 38e75816968a34ec0a55b2ac8471c915, type: 3}
+  LikeRecipes:
+  - {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
   visitProbability: 95
-  patience: 50
-  paymentThreshold: 50
+  patience: 2000
+  paymentThreshold: 100

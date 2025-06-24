@@ -40,4 +40,12 @@ public class PortionDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         Destroy(dragIcon);
     }
+
+    public void ForceEndDrag()
+    {
+        if (dragIcon != null)
+        {
+            Destroy(dragIcon);
+        }
+    }
 }

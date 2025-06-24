@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42e8631c4dea741bdbe16da6e5a2c8a3, type: 3}
-  m_Name: New Recipe Data
+  m_Name: Basic Heal Potion
   m_EditorClassIdentifier: 
-  recipeName: 
-  icon: {fileID: 0}
-  ingredients: []
+  recipeName: "\uCCB4\uB825+30\uD3EC\uC158"
+  icon: {fileID: 21300000, guid: e725e3bb69c4c459ba29d0e63674b8a5, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 2406a76f71b5146dcb7d543eecb76281, type: 2}
+  - {fileID: 11400000, guid: 373a396faa5684256a2e40383e72463a, type: 2}
   baseCraftTime: 2
   basePrice: 100
-  rhythmDifficulty: 0
+  rhythmDifficulty: 0.1

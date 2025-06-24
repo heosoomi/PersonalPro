@@ -48,6 +48,8 @@ public class CustomerSpawnManager : MonoBehaviour
             float waitTime = Random.Range(spawnIntervalMin, spawnIntervalMax);
             yield return new WaitForSeconds(waitTime);
 
+            isVisit = true;
+
             SpawnCustomer();
 
             yield return new WaitUntil(()=> !isVisit);
@@ -56,6 +58,11 @@ public class CustomerSpawnManager : MonoBehaviour
 
     void SpawnCustomer()
     {
+        if (go != null)
+        {
+            Debug.Log("손님이 존재! 중복 생성 ㄴㄴ");
+            return;
+        }
         // 가중치 기반 랜덤 고객 선택
         CustomerData data = GetRandomCustomerData();
 
@@ -66,12 +73,6 @@ public class CustomerSpawnManager : MonoBehaviour
         go = Instantiate(customerPrefab, point.position, Quaternion.identity);
 
 
-        // Animator animator = go.GetComponent<Animator>();
-        // if (animator != null)
-        //     animator.SetTrigger("SPAWN");
-        // else
-        // Debug.LogWarning("손님 프리팹에 Animator가 없음!");
-
         //customer 컴포넌트에 데이터 세팅
         Customer customer = go.GetComponent<Customer>();
         if (customer != null)
@@ -79,6 +80,12 @@ public class CustomerSpawnManager : MonoBehaviour
 
 
         isVisit = true;
+
+        Animator animator = go.GetComponent<Animator>();
+        if (animator != null)
+        {
+            
+        }
 
        
     }
@@ -100,5 +107,6 @@ public class CustomerSpawnManager : MonoBehaviour
     public void OnCustomerGone()
     {
         isVisit = false;
+        visitCount++;
     }
 }
