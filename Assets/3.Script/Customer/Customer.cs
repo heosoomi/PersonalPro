@@ -40,6 +40,16 @@ public class Customer : MonoBehaviour
     //SpawnManager에서 호출
     public void Setup(CustomerData customerData)
     {
+        DropHandler dropHandler = FindObjectOfType<DropHandler>();
+        if (dropHandler != null)
+        {
+            dropHandler.SetCustomer(this);
+        }
+        else
+        {
+            Debug.LogWarning("❌ DropHandler를 찾을 수 없어요! 연결 필요!");
+        }
+
         data = customerData;
         //nameText.text = data.customerName;
         //iconImage.sprite = data.icon;
@@ -199,13 +209,15 @@ public class Customer : MonoBehaviour
     {
         Debug.Log($"{data.customerName} 떠나는 중...");
         if (animator) animator.SetTrigger("LEAVE");
-        yield return new WaitForSeconds(1.5f);  //애니메이션 시간
-
-        // 말풍선 제거
+        
         if (balloonInstance != null)
         {
             Destroy(balloonInstance);
         }
+        yield return new WaitForSeconds(6f);  //애니메이션 시간
+
+        // 말풍선 제거
+        
 
         CustomerSpawnManager spawnManager = FindAnyObjectByType<CustomerSpawnManager>();
         if (spawnManager != null)

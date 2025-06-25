@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: "\uD770\uB291\uB300\uC758 \uC774\uBE68"
   icon: {fileID: 21300000, guid: 5a778f007850b4c10bfc93a857cfcbbb, type: 3}
+  dropType: 2
   rarity: 0
   basePrice: 30
   description: "\uD770 \uB291\uB300\uC758 \uC774\uBE68 D\uB4F1\uAE09 \uC774\uC0C1\uC758

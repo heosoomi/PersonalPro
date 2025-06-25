@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 373a396faa5684256a2e40383e72463a, type: 2}
   baseCraftTime: 2
   basePrice: 100
-  rhythmDifficulty: 0.1
+  stirOrder: 0200000001000000000000000100000000000000

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc642dcbd5a24704af040b97255d035, type: 3}
+  m_Name: ElfsTear
+  m_EditorClassIdentifier: 
+  ingredientName: "\uC694\uC815\uC758 \uB208\uBB3C"
+  icon: {fileID: 21300000, guid: f37d5c755cccc4819986abc63d6c48c1, type: 3}
+  dropType: 4
+  rarity: 4
+  basePrice: 600
+  description: "\uC694\uC815\uC758 \uB208\uBB3C\uC740 \uC624\uC0C9\uCC2C\uB780\uD55C
+    \uC0C9\uC744 \uBC1C\uD558\uB294 \uBB3C\uC9C8\uC774\uB2E4. 100\uB144\uC774\uC0C1
+    \uC0B4\uC544\uC628 \uC694\uC815\uC758 \uB208\uC5D0\uC11C \uCC44\uCDE8\uD574\uC57C\uD558\uBBC0\uB85C
+    \uAD6C\uD558\uAE30\uAC00 \uC5B4\uB835\uB2E4."

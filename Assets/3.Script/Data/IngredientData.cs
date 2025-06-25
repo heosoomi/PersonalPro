@@ -17,6 +17,7 @@ public class IngredientData : ScriptableObject
     [Header("기본정보")]
     public string ingredientName;   // 재료이름
     public Sprite icon;             // UI 아이콘
+    public int dropType;
     public Rarity rarity;           // 희귀도
 
     [Header("속성")]

@@ -10,15 +10,9 @@ public class DropHandler : MonoBehaviour, IDropHandler
     [SerializeField] private Transform dropTransform; // Horizontal Layout이 붙은 부모
     [SerializeField] private GameObject portionSlotPrefab; //슬롯프리팹
 
-    void Start()
+    public void SetCustomer(Customer customer)
     {
-        currentCustomer = FindObjectOfType<Customer>(); // 현재 씬에 있는 Customer 하나 자동 연결
-
-        if (currentCustomer == null)
-        {
-            Debug.LogWarning("❌ currentCustomer가 DropHandler에 연결되어 있지 않아요!");
-            return;
-        }
+        currentCustomer = customer;
     }
 
     public void OnDrop(PointerEventData eventData)

@@ -17,7 +17,8 @@ public class RecipeData : ScriptableObject
     [Header("제작 파라미터")]
     public float baseCraftTime = 2f;
     public int basePrice = 100;
-    [Range(0f, 1f)] public float rhythmDifficulty;
+    
+    public List<int> stirOrder;
 
 
     //[Header("추가옵션")]
