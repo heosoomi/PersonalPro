@@ -7,12 +7,15 @@ public class InventoryManager : MonoBehaviour
 {
     public Button confirmButton;
     public CraftUIManager craftUIManager; // Inspector에서 연결
+    public GameObject Stir_UI;
 
     public Image Inventory;
     public List<InventorySlot> allSlots;
     public List<InventorySlot> selectedSlots = new List<InventorySlot>();
 
-    [HideInInspector]public int item = 1;
+    public List<InventorySlot> bakeSlots;
+
+    [HideInInspector] public int item = 1;
 
     void Start()
     {
@@ -86,9 +89,18 @@ public class InventoryManager : MonoBehaviour
         foreach(var slot in selectedSlots) Debug.Log("선택된 슬롯: " + slot.itemData);
         if (selectedSlots.Count == 0)
         {
-            Debug.Log("아무것도 업써요");
+            if (bakeSlots.Count > 0)
+            {
+                Inventory.gameObject.SetActive(false);
+                Stir_UI.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("아무것도 업써요");
+            }
             return;
         }
+        bakeSlots = new List<InventorySlot>(selectedSlots);
         StartCoroutine(PlayAnimAndThenOpenInventory());
     }
 
@@ -119,7 +131,7 @@ public class InventoryManager : MonoBehaviour
 
         // 이제 애니메이션이 "정확히 끝난 뒤"!
         Inventory.gameObject.SetActive(true);
-
+        
         foreach (var slot in allSlots)
         {
             slot.ResetSelection();

@@ -7,7 +7,7 @@ public class NPCUIButton : MonoBehaviour
 {
     
     [SerializeField] private GameObject popupUI;
-    private Button guri;
+    public Button guri;
 
 
     void OnEnable()

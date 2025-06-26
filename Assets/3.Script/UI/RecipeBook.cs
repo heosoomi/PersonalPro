@@ -5,8 +5,26 @@ using UnityEngine.UI;
 
 public class RecipeBook : MonoBehaviour
 {
-    public Button recipe01;
-    public Button recipe02;
+    public Button recipe01, recipe02;
+
+    public GameObject healPotionR;
+    //public GameObject LuckPotionR;
+
+
+    void Start()
+    {
+        healPotionR.SetActive(false);
+        //LuckPotionR.SetActive(false);
+    }
+    public void OnClickRecipe01()
+    {
+        healPotionR.SetActive(true);
+    }
+    public void OnClosedRecipe()
+    {
+        healPotionR.SetActive(false);
+    }
+
 
 
 }
