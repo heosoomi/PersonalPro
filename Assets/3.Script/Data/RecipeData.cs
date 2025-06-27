@@ -8,6 +8,7 @@ public class RecipeData : ScriptableObject
     [Header("기본 정보")]
     public string recipeName;
     public Sprite icon;
+    public int Price;
 
 
     [Header("재료 + 순서")]

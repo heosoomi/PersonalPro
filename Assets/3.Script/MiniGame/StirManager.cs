@@ -14,6 +14,8 @@ public class StirManager : MonoBehaviour
 
     public List<StirPoint> stirPoints;
     private StirPoint prevHoverPoint;
+
+    public Animator spoonAnim;
    
     void Start()
     {
@@ -82,12 +84,14 @@ public class StirManager : MonoBehaviour
             {
                 Debug.Log("전체 성공!");
                 ResetStir();
+                spoonAnim.SetTrigger("OWARI");
             }
         }
         else
         {
             Debug.Log("드래그 실패 (중간에 잘못된 포인트 혹은 잘못된 순서)");
             ResetStir();
+            spoonAnim.SetTrigger("OWARI");
         }
         dragStartIndex = -1;
     }

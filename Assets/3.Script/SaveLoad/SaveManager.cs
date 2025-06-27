@@ -27,7 +27,7 @@ public class SaveManager : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             playerData = JsonUtility.FromJson<PlayerData>(json);
-            Debug.Log("불러오기 성공 돈 :" + playerData.gold);
+            Debug.Log("불러오기 성공 돈 :" + playerData.money);
         }
         else
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int gold;
+    public int money;
     public string nickname;
     public int level;
 }

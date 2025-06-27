@@ -11,7 +11,7 @@ public class PortionSlotData : MonoBehaviour
     public Image iconImage;
     public TextMeshProUGUI countText;
 
-    public RecipeData recipeData;
+    public PortionData portionData;
 
     [SerializeField] private GameObject darkOverlay;
 

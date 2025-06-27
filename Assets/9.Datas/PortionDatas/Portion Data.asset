@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0e6b6d29e5140d6bf2bc3bb4a3cbb8, type: 3}
   m_Name: Portion Data
   m_EditorClassIdentifier: 
-  PortionName: Portion1
+  PortionName: "\uAE30\uCD08\uCCB4\uB825\uD3EC\uC158"
   icon: {fileID: 21300000, guid: e725e3bb69c4c459ba29d0e63674b8a5, type: 3}
   Price: 100
-  description: "\uC0EC\uB77C\uC0EC\uB77C"
+  description: "\uB18D\uB178\uAC00 \uC88B\uC544\uD558\uB294 \uAE30\uCD08 \uCCB4\uB825
+    \uD3EC\uC158. \uCCB4\uB825\uC774 30\uC774 \uC62C\uB77C\uAC04\uB2E4. \uB9E4\uC77C\uB9E4\uC77C
+    \uBC2D\uC744 \uC77C\uAD6C\uB290\uB77C \uD53C\uB85C\uD55C \uB18D\uB178\uB4E4\uC5D0\uAC8C
+    \uC778\uAE30\uC788\uB294 \uC74C\uB8CC\uC218."

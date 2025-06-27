@@ -17,11 +17,21 @@ public class MoneyManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            LoadMoney();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+    void Start()
+    {
+        int money = PlayerPrefs.GetInt("Money", 0);
+        MoneyManager.Instance.SetMoney(money);
+    }
+    private void OicationQuit()
+    {
+        SaveMoney();    
     }
     public void AddMoney(int amount)
     {
@@ -53,5 +63,15 @@ public class MoneyManager : MonoBehaviour
     {
         MoneyManager.Instance.AddMoney(PotionPrice);
         //기타 판매 처리(인벤토리 제거 등)
+    }
+    public void SaveMoney()
+    {
+        PlayerPrefs.SetInt("Money", MoneyManager.Instance.CurrentMoney);
+        PlayerPrefs.Save();
+    }
+    public void LoadMoney()
+    {
+        int money = PlayerPrefs.GetInt("Money", 0);
+        SetMoney(money);
     }
 }

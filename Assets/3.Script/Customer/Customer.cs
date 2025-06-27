@@ -28,7 +28,7 @@ public class Customer : MonoBehaviour
     private CustomerState state = new CustomerState();
 
 
-    private RecipeData desireRecipe; // 손님이 원하는 포션
+    private PortionData desirePortion; // 손님이 원하는 포션
 
     [Header("말풍선 관련")]
     [SerializeField] private GameObject balloonPrefab; // 말풍선 프리팹
@@ -56,9 +56,9 @@ public class Customer : MonoBehaviour
         remainingPatience = data.patience;
 
         // 원하는 레시피 중 하나 랜덤으로 선택
-        if (data.LikeRecipes.Count > 0)
+        if (data.LikePortion.Count > 0)
         {
-            desireRecipe = data.LikeRecipes[Random.Range(0, data.LikeRecipes.Count)];
+            desirePortion = data.LikePortion[Random.Range(0, data.LikePortion.Count)];
         }
 
         SpawnBalloon();
@@ -69,7 +69,7 @@ public class Customer : MonoBehaviour
 
     private void SpawnBalloon()
     {
-        if (balloonPrefab == null || desireRecipe == null || balloonAnchor == null)
+        if (balloonPrefab == null || desirePortion == null || balloonAnchor == null)
         {
             Debug.LogWarning("말풍선 프리팹 또는 위치 또는 레시피가 없음");
             return;
@@ -92,12 +92,12 @@ public class Customer : MonoBehaviour
             Debug.LogError("PotionIcon에 Image 컴포넌트가 없어요!");
             return;
         }
-        if (desireRecipe.icon == null)
+        if (desirePortion.icon == null)
         {
-            Debug.LogError($"{desireRecipe.name} 의 icon 값이 null입니다! RecipeData에 연결했는지 확인해줘.");
+            Debug.LogError($"{desirePortion.name} 의 icon 값이 null입니다! RecipeData에 연결했는지 확인해줘.");
             return;
         }
-        icon.sprite = desireRecipe.icon;
+        icon.sprite = desirePortion.icon;
        
     }
 
@@ -167,9 +167,9 @@ public class Customer : MonoBehaviour
         }
     }
     // 플레이어가 판매 버튼을 클릭했을 때 호출
-    public bool TryPurchase(RecipeData recipe, int offeredPice)
+    public bool TryPurchase(PortionData portion, int offeredPice)
     {
-        if (data.LikeRecipes.Contains(recipe) && offeredPice <= data.paymentThreshold)
+        if (data.LikePortion.Contains(portion) && offeredPice <= data.paymentThreshold)
         {
             // 구매 성공
             return true;
@@ -181,11 +181,11 @@ public class Customer : MonoBehaviour
         }
 
     }
-    public bool TryReceivePortion(RecipeData droppedPortion)
+    public bool TryReceivePortion(PortionData droppedPortion)
     {
         if (state == CustomerState.Leaving) return false;
 
-        if (droppedPortion == desireRecipe)
+        if (droppedPortion == desirePortion)
         {
             Debug.Log($"{data.customerName} 만족! 포션 일치");
             EnterState(CustomerState.Leaving);
@@ -225,6 +225,14 @@ public class Customer : MonoBehaviour
 
         Destroy(gameObject);
     }
+    public void OnReceivePotion(PortionData portion)
+    {
+        // 돈 획득 처리
+        MoneyManager.Instance.AddMoney(portion.Price);
 
+        // 리액션 / 애니메이션 등 추가
+
+
+    }
     
 }

@@ -30,23 +30,31 @@ public class DropHandler : MonoBehaviour, IDropHandler
                 Debug.LogWarning("드롭된 포션에 PortionSlotData 컴포넌트가 없음!");
                 return;
             }
-            if (slotData.recipeData == null)
+            if (slotData.portionData == null)
             {
-                Debug.LogWarning("드롭된 포션에 recipeData가 비어있음!");
+                Debug.LogWarning("드롭된 포션에 poritonData가 비어있음!");
                 return;
             }
-            RecipeData droppedRecipe = slotData.recipeData;
+            PortionData droppedPortion = slotData.portionData;
 
             // 손님에게 포션 시도
             if (currentCustomer != null)
             {
-                bool success = currentCustomer.TryReceivePortion(droppedRecipe);
+                bool success = currentCustomer.TryReceivePortion(droppedPortion);
 
                 if (success)
                 {
                     Debug.Log($"손님이 포션을 만족해함!");
                     slotData.UsePortion(); // 수량 1 감소
 
+                    // 돈 벌기
+                    MoneyManager.Instance.AddMoney(droppedPortion.Price);
+                    // 드롭바매니저에서 개수 관리
+                    // DropBarManager.Instance.SellPotion(droppedRecipe, 1);
+
+                    //슬롯 수량 감소 및 UI 업데이트
+                    //slotData.UsePortion(); //수량 1 감소, 내부에서 0개면 자동삭제
+   
                     // 드래그 이미지 수동 제거
                     PortionDragHandler dragHandler = dropped.GetComponent<PortionDragHandler>();
                     if (dragHandler != null)
@@ -62,17 +70,21 @@ public class DropHandler : MonoBehaviour, IDropHandler
 
         }
     }
-    public void AddPortionSlot(RecipeData recipeToAssign)
+    public void AddPortionSlot(PortionData portionToAssign)
     {
         // 슬롯 생성
         GameObject slot = Instantiate(portionSlotPrefab, dropTransform);
 
         // 슬롯 내부 스크립트에 레시피 연결
         PortionSlotData data = slot.GetComponent<PortionSlotData>();
-        data.recipeData = recipeToAssign;
+        data.portionData = portionToAssign;
         data.count = 1; // 수량 초기 설정등도 여기서 가능
 
         // 아이콘이나 텍스트 업데이트 함수도 추가 가능
         data.UpdateCountUI();
     }
+
+  
 }
+
+

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PortionDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image portionImage;
+    public PortionData PortionData;
     private GameObject dragIcon;
     private RectTransform dragTransform;
     private Canvas canvas;

@@ -10,7 +10,7 @@ public class CustomerData : ScriptableObject
     public Sprite icon; // 아이콘
 
     [Header("선호도 + 행동")]
-    public List<RecipeData> LikeRecipes;
+    public List<PortionData> LikePortion;
     [Range(0, 100)] public float visitProbability;
     public int patience; //인내도 (대기횟수)
 

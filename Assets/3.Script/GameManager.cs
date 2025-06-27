@@ -55,12 +55,28 @@ public class GameManager : MonoBehaviour
         OnStateChanged?.Invoke(newState);
         //HandleStateEnter(newState);
     }
-    // private void HandleStateEnter(GameState state)
-    // {
-    //     switch (state)
-    //     {
+    private void HandleStateEnter(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.MainMenu:
+                // 메인 메뉴 씬 로드
+                SceneManager.LoadScene("StartScene");
+                Time.timeScale = 1;
+                break;
+
+            case GameState.Playing:
+                // 실제 플레이 씬 로드
+                SceneManager.LoadScene("MainGame");
+                Time.timeScale = 1;
+                break;
+
+            case GameState.Crafting:
+                //
+                SceneManager.LoadScene("CㄱaftRoom");
+                Time.timeScale = 1;
+                break;
             
-    //         //default:
-    //     }
-    // }
+        }
+    }
 }

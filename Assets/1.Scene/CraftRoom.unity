@@ -4224,6 +4224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeData: {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
   stirPoints: []
+  spoonAnim: {fileID: 2070781224}
 --- !u!1 &929681116
 GameObject:
   m_ObjectHideFlags: 0
