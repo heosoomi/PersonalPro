@@ -16,12 +16,45 @@ public class InGameUI : MonoBehaviour
 
     public Button Load;
 
-    public SaveManager saveManager;
+    public Button guri;
+    [SerializeField] private GameObject popupUI;
+
+    private bool isOpen;
+
+    // void OnEnable()
+    // {
+    //     // if (!TryGetComponent(out guri))
+    //     //     Debug.Log("구리 없음");
+
+    //     guri.enabled = false;
+    // }
+
+    void OnEnable()
+    {
+        isOpen = false;
+        guri.onClick.RemoveAllListeners();
+        guri.onClick.AddListener(OnClickNPC);
+    }
+    public void OnClickNPC()
+    {
+        if (isOpen == false)
+        {
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+        }
+
+        popupUI.SetActive(!isOpen);
+        isOpen = !isOpen;
+    }
 
 
 
     public void OnCraftButton()
     {
+        
         SceneManager.LoadScene("CraftRoom");
     }
     public void OnRecipeButton()
@@ -35,12 +68,12 @@ public class InGameUI : MonoBehaviour
 
     public void OnSaveBotton()
     {
-        saveManager.Save();
+        SaveManager.Instance.Save();
     }
 
     public void OnLoadBotton()
     {
-        saveManager.Load();
+        SaveManager.Instance.Load();
     }
     
 }

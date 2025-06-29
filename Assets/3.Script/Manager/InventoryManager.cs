@@ -72,7 +72,6 @@ public class InventoryManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f); //마지막 여유시간
-        craftUIManager.GoToCraftStep();
         Inventory.gameObject.SetActive(false);
         selectedSlots.Clear();
 
@@ -91,8 +90,10 @@ public class InventoryManager : MonoBehaviour
         {
             if (bakeSlots.Count > 0)
             {
+                craftUIManager.craftAnimator.SetTrigger("START");
                 Inventory.gameObject.SetActive(false);
                 Stir_UI.SetActive(true);
+
             }
             else
             {

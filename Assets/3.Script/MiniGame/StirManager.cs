@@ -75,15 +75,17 @@ public class StirManager : MonoBehaviour
         int expectedEnd = stirOrder[currentOrderIndex + 1];
 
         Debug.Log($"expectedStart: {expectedStart}, expectedEnd: {expectedEnd}");
-
+        spoonAnim.SetTrigger("ROTATE");
         if (dragStartIndex == expectedStart && pointIndex == expectedEnd)
         {
             Debug.Log($"드래그 성공: {expectedStart} → {expectedEnd}");
             currentOrderIndex++;
+
             if (currentOrderIndex == stirOrder.Count - 1)
             {
                 Debug.Log("전체 성공!");
                 ResetStir();
+
                 spoonAnim.SetTrigger("OWARI");
             }
         }

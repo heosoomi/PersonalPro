@@ -30,7 +30,11 @@ public class NPCInteraction : MonoBehaviour
         popupUI.SetActive(false);               // 시작할 때는 UI는 꺼두기
     }
 
-
+    void OnEnable()
+    {
+        guriCol.enabled = true;
+        guri.color = new Vector4(1, 1, 1, 1);
+    }
 
     private void Start()
     {
@@ -54,36 +58,18 @@ public class NPCInteraction : MonoBehaviour
                 }
             }
         }
-
-        if (!popupUI.activeSelf)
-        {
-            guriCol.enabled = true;
-            guri.color = new Vector4(1, 1, 1, 1);
-        }
-        else
-        {
-            guriCol.enabled = false;
-            guri.color = new Vector4(1, 1, 1, 0);
-        }
-
     }
 
     private void OnMouseDown()
     {
-
-        ShowPopup();
-        
+        ShowPopup();  
     }
-
-
 
     private void ShowPopup()
     {
-
+        gameObject.SetActive(false);
+        guri.color = new Vector4(1, 1, 1, 0);
         popupUI.SetActive(true);
         Time.timeScale = 0;
-        
     }
-
-   
 }

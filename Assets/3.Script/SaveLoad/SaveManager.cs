@@ -5,10 +5,23 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
+
+    public static SaveManager Instance = null;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     public PlayerData playerData = new PlayerData();
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
     }
     string GetSavePath()
     {
