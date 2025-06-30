@@ -18,7 +18,9 @@ public class RecipeData : ScriptableObject
     [Header("제작 파라미터")]
     public float baseCraftTime = 2f;
     public int basePrice = 100;
-    
+
+    public PortionData resultPotion;
+
     public List<int> stirOrder;
 
 

@@ -54,7 +54,6 @@ public class InGameUI : MonoBehaviour
 
     public void OnCraftButton()
     {
-        
         SceneManager.LoadScene("CraftRoom");
     }
     public void OnRecipeButton()

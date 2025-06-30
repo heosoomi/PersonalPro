@@ -7,16 +7,22 @@ using UnityEngine.UI;
 public class StirManager : MonoBehaviour
 {
     public RecipeData recipeData;
+    public List<RecipeData> allRecipes;
     private List<int> stirOrder;
     // StirManager 내부
     private int dragStartIndex = -1;
     private int currentOrderIndex = 0;
 
-    public List<StirPoint> stirPoints;
+    //public List<StirPoint> stirPoints;
     private StirPoint prevHoverPoint;
 
     public Animator spoonAnim;
-   
+
+    public CraftUIManager popup;
+
+    private List<IngredientData> selectedIngredients = new List<IngredientData>();
+    private List<int> playerStirOrder = new List<int>();
+
     void Start()
     {
         stirOrder = new List<int>(recipeData.stirOrder ?? new List<int>());
@@ -85,7 +91,7 @@ public class StirManager : MonoBehaviour
             {
                 Debug.Log("전체 성공!");
                 ResetStir();
-
+                TryCrafting(selectedIngredients, playerStirOrder);
                 spoonAnim.SetTrigger("OWARI");
             }
         }
@@ -103,6 +109,53 @@ public class StirManager : MonoBehaviour
         dragStartIndex = -1;
         // 실패 UI 처리 등
     }
-   
+
+    private bool isIngredientMatch(RecipeData recipe, List<IngredientData> selected)
+    {
+        var setA = new HashSet<IngredientData>(recipe.ingredients);
+        var setB = new HashSet<IngredientData>(selected);
+        return setA.SetEquals(setB);
+    }
+    public RecipeData FindMatchingRecipe(List<IngredientData> selectedIngredients, List<int> playerStirOrder)
+    {
+        foreach (var recipe in allRecipes)
+        {
+            //1.재료 완전 일치
+            if (!isIngredientMatch(recipe, selectedIngredients)) continue;
+            //2.젓기 순서 완전 일치
+            if (recipe.stirOrder.Count != playerStirOrder.Count) continue;
+
+            bool orderMatch = true;
+            for (int i = 0; i < recipe.stirOrder.Count; i++)
+            {
+                if (recipe.stirOrder[i] != playerStirOrder[i])
+                {
+                    orderMatch = false;
+                    break;
+                }
+            }
+            if (orderMatch)
+                return recipe; // 일치하는 레시피 발견
+        }
+        return null;
+
+    }
+    public void TryCrafting(List<IngredientData> selected, List<int> stirOrder)
+    {
+        RecipeData matched = FindMatchingRecipe(selected, stirOrder);
+        if (matched != null)
+        {
+            Debug.Log($"성공! {matched.resultPotion.PortionName}");
+            popup.ShowPotionPopup(matched.resultPotion);
+
+            //***인벤추가 등 다른 처리도 여기서 하셈~!
+        }
+        else
+        {
+            Debug.Log("제작실패!");
+
+             //*** 실패 팝업/ 효과 등 추가 처리
+        }
+    }
 
 }

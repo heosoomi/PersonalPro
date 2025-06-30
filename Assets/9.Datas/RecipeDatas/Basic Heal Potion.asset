@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: "\uCCB4\uB825+30\uD3EC\uC158"
   icon: {fileID: 21300000, guid: e725e3bb69c4c459ba29d0e63674b8a5, type: 3}
+  Price: 0
   ingredients:
   - {fileID: 11400000, guid: 2406a76f71b5146dcb7d543eecb76281, type: 2}
   - {fileID: 11400000, guid: 373a396faa5684256a2e40383e72463a, type: 2}
   baseCraftTime: 2
   basePrice: 100
+  resultPotion: {fileID: 11400000, guid: 3bf1d1e24693d4b59b9c369a518d673e, type: 2}
   stirOrder: 0200000001000000000000000100000002000000
