@@ -24,6 +24,9 @@ public class CraftUIManager : MonoBehaviour
     public GameObject rerecipebook;
     public AnimationClip jarAni;
 
+    public StirManager stirManager;
+
+
     [Header("성공/실패 PopUP 창")]
     public GameObject popupOBJ;
     public Image iconImage;
@@ -39,6 +42,9 @@ public class CraftUIManager : MonoBehaviour
         inventoryPanel.SetActive(false); // 처음엔 인벤토리 끔\
         rerecipebook.SetActive(false);
         Pan.SetActive(false);
+        popupOBJ.SetActive(false);
+
+        
 
     }
 
@@ -91,19 +97,37 @@ public class CraftUIManager : MonoBehaviour
     {
         inventoryPanel.SetActive(true);
     }
+    public void SetSelectedIngredients(List<IngredientData> ingredients)
+    {
+        selectedIngredients = ingredients;
+    }
+
     public void GoToCraftStep()
     {
+        stirManager.SetSelectedIngredients(selectedIngredients);
         //제작단계로 이동하는 코드
         craftAnimator.SetTrigger("DONE");
+
     }
 
     public void ShowPotionPopup(PortionData potion)
     {
-        if (potion == null) return;
+        if (potion == null)
+        {
+            Debug.LogWarning("포션데이터가 null이라 팝업 ㄴㄴ");
+            return;
+        }
+
+        if (popupOBJ == null) Debug.LogError("popupOBJ가 Inspector에 연결 안됨!");
+        if (iconImage == null) Debug.LogError("iconImage 연결 안됨!");
+        if (nameText == null) Debug.LogError("nameText 연결 안됨!");
 
         popupOBJ.SetActive(true);
         iconImage.sprite = potion.icon;
         nameText.text = potion.PortionName;
+        
+
+        Debug.Log($"icon: {potion.icon}, name: {potion.PortionName}");
     }
     public void HidePopup()
     {

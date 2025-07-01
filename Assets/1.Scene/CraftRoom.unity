@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointIndex: 2
-  manager: {fileID: 914744935}
+  manager: {fileID: 2070781226}
 --- !u!1 &242058193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465415052}
+  - component: {fileID: 465415053}
   m_Layer: 5
   m_Name: PopUP_Sucess
   m_TagString: Untagged
@@ -2182,6 +2183,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &465415053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465415051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5a37350cd424cbbbd249c254ff96a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createButton: {fileID: 1594670953}
+  recipeButton: {fileID: 1458980162}
+  prevButton: {fileID: 1048834773}
+  recipeClose: {fileID: 108190719}
+  SwitchPage: {fileID: 869895616}
+  Pan: {fileID: 49639711}
+  craftAnimator: {fileID: 2070781224}
+  inventoryPanel: {fileID: 1887697122}
+  jar: {fileID: 2070781222}
+  rerecipebook: {fileID: 1738208056}
+  jarAni: {fileID: 7400000, guid: 4ede601c3796e4d21858482b86c1eae2, type: 2}
+  stirManager: {fileID: 0}
+  popupOBJ: {fileID: 465415051}
+  iconImage: {fileID: 1170530086}
+  nameText: {fileID: 589483309}
+  selectedIngredients: []
 --- !u!1 &514933711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,7 +3813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointIndex: 0
-  manager: {fileID: 914744935}
+  manager: {fileID: 2070781226}
 --- !u!1 &818331745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,7 +4577,6 @@ GameObject:
   - component: {fileID: 914744934}
   - component: {fileID: 914744933}
   - component: {fileID: 914744932}
-  - component: {fileID: 914744935}
   m_Layer: 0
   m_Name: CraftRoomManager
   m_TagString: Untagged
@@ -4579,6 +4607,7 @@ MonoBehaviour:
   jar: {fileID: 2070781222}
   rerecipebook: {fileID: 1738208056}
   jarAni: {fileID: 7400000, guid: 4ede601c3796e4d21858482b86c1eae2, type: 2}
+  stirManager: {fileID: 2070781226}
   popupOBJ: {fileID: 465415051}
   iconImage: {fileID: 1170530086}
   nameText: {fileID: 589483309}
@@ -4620,23 +4649,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &914744935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914744931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e379f7c502f4a39bc71c4abad4ecc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recipeData: {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
-  allRecipes:
-  - {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
-  spoonAnim: {fileID: 2070781224}
-  popup: {fileID: 914744932}
 --- !u!1 &929681116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7923,7 +7935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointIndex: 1
-  manager: {fileID: 914744935}
+  manager: {fileID: 2070781226}
 --- !u!1 &1593199186
 GameObject:
   m_ObjectHideFlags: 0
@@ -10664,6 +10676,7 @@ GameObject:
   - component: {fileID: 2070781225}
   - component: {fileID: 2070781224}
   - component: {fileID: 2070781223}
+  - component: {fileID: 2070781226}
   m_Layer: 0
   m_Name: Jar
   m_TagString: Untagged
@@ -10759,6 +10772,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070781226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070781222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e379f7c502f4a39bc71c4abad4ecc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeData: {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
+  allRecipes:
+  - {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
+  spoonAnim: {fileID: 2070781224}
+  popup: {fileID: 465415053}
 --- !u!1 &2117702660
 GameObject:
   m_ObjectHideFlags: 0

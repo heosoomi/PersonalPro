@@ -47,6 +47,7 @@ public class InventoryManager : MonoBehaviour
         //아무것도 선택 안했으면 바로 제작 단계로
         if (selectedSlots.Count == 0)
         {
+            
             craftUIManager.GoToCraftStep();
             return;
         }
