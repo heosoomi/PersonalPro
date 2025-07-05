@@ -780,13 +780,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: 738175fa003614c2bbe64f8f5f7b4c3c, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1418986873}
+        m_TargetAssemblyTypeName: BootScene, Assembly-CSharp
+        m_MethodName: LoadButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1433,6 +1433,7 @@ MonoBehaviour:
   tapToStart: {fileID: 231893694}
   Tpanel: {fileID: 126921954}
   panel: {fileID: 571714138}
+  Load: {fileID: 507043784}
   t_Potion: {fileID: 591361596}
   t_Story: {fileID: 1465850638}
 --- !u!1 &1465850637
@@ -1727,7 +1728,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1883501200}
-  - component: {fileID: 1883501199}
+  - component: {fileID: 1883501201}
+  - component: {fileID: 1883501202}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -1735,22 +1737,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1883501199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883501198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90bcec74ee1824e4e9e6750e16dc4af5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData:
-    gold: 1000
-    nickname: "\uC14B\uC9F8\uC544\uB4E4"
-    level: 1
 --- !u!4 &1883501200
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,6 +1752,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1883501201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883501198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bcec74ee1824e4e9e6750e16dc4af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData:
+    money: 300
+    level: 0
+--- !u!114 &1883501202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883501198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f86884299c94b3bb6f90d7d3c6e0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886582021
 GameObject:
   m_ObjectHideFlags: 0

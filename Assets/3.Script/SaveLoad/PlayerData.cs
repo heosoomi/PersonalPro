@@ -6,6 +6,13 @@ using UnityEngine;
 public class PlayerData
 {
     public int money;
-    public string nickname;
+    
     public int level;
+
+    public PlayerData()
+    {
+        money = 300;
+        level = 1;
+
+    }
 }

@@ -200,7 +200,7 @@ public class Customer : MonoBehaviour
     public bool DecreasePatience()
     {
         remainingPatience--;
-        Debug.Log($"{data.customerName} 참을성: {remainingPatience}");
+       // Debug.Log($"{data.customerName} 참을성: {remainingPatience}");
         return remainingPatience > 0;
     }
 

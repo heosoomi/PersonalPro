@@ -5,12 +5,12 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class BootScene : MonoBehaviour
 {
     public Button tapToStart;
     public GameObject Tpanel;
     public GameObject panel;
+    public Button Load;
     public RectTransform t_Potion;
     public RectTransform t_Story;
     private Vector2 P_pos;
@@ -20,7 +20,6 @@ public class BootScene : MonoBehaviour
     {
         P_pos = t_Potion.anchoredPosition;
         S_pos = t_Story.anchoredPosition;
-       
     }
 
     void Start()
@@ -29,7 +28,6 @@ public class BootScene : MonoBehaviour
         panel.SetActive(false);
 
         BootAnim();
-
     }
 
     public void OntapToStart()
@@ -38,8 +36,11 @@ public class BootScene : MonoBehaviour
         Tpanel.SetActive(true);
     }
 
+    // ★★★ "새 게임" 버튼 (돈 0으로 초기화) ★★★
     public void OnInGameButton()
     {
+        MoneyManager.Instance.SetMoney(0); // 또는 원하는 초기값
+        MoneyManager.Instance.SaveMoney(); // 저장
         SceneManager.LoadScene("MainGame");
     }
 
@@ -56,4 +57,10 @@ public class BootScene : MonoBehaviour
         t_Story.DOScale(Vector3.one, 1f).SetEase(Ease.OutExpo);
     }
 
+    // ★★★ "불러오기" 버튼 (저장값 로드) ★★★
+    public void LoadButton()
+    {
+        MoneyManager.Instance.LoadMoney(); // 저장된 돈 로드 및 적용
+        SceneManager.LoadScene("MainGame");
+    }
 }

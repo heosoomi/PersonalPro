@@ -13,7 +13,7 @@ public class CraftUIManager : MonoBehaviour
     public Button prevButton;
     public Button recipeClose;
 
-    //public Button switchGO;
+    public GameObject switchGO;
 
     public GameObject SwitchPage;
 
@@ -44,6 +44,7 @@ public class CraftUIManager : MonoBehaviour
         Pan.SetActive(false);
         popupOBJ.SetActive(false);
 
+        //switchGO.SetActive(true);
         
 
     }
@@ -107,6 +108,8 @@ public class CraftUIManager : MonoBehaviour
         stirManager.SetSelectedIngredients(selectedIngredients);
         //제작단계로 이동하는 코드
         craftAnimator.SetTrigger("DONE");
+        switchGO.SetActive(false);
+
 
     }
 

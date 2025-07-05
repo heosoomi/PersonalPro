@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
@@ -7,7 +5,6 @@ public class MoneyManager : MonoBehaviour
     public static MoneyManager Instance { get; private set; }
     public int CurrentMoney { get; private set; } = 0;
 
-    //돈 변동시 UI에 반영하고 싶으면 이벤트 사용 가능
     public delegate void OnMoneyChanged(int newMoney);
     public event OnMoneyChanged MoneyChanged;
 
@@ -17,26 +14,24 @@ public class MoneyManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadMoney();
+            LoadMoney(); // PlayerPrefs에서 불러와서 CurrentMoney에 세팅!
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void OnApplicationQuit()
     {
-        int money = PlayerPrefs.GetInt("Money", 0);
-        MoneyManager.Instance.SetMoney(money);
+        SaveMoney();
     }
-    private void OicationQuit()
-    {
-        SaveMoney();    
-    }
+
     public void AddMoney(int amount)
     {
         CurrentMoney += amount;
         MoneyChanged?.Invoke(CurrentMoney);
+        SaveMoney(); // 추가: 돈 변동마다 바로 저장!
     }
     public bool SpendMoney(int amount)
     {
@@ -44,11 +39,11 @@ public class MoneyManager : MonoBehaviour
         {
             CurrentMoney -= amount;
             MoneyChanged?.Invoke(CurrentMoney);
+            SaveMoney(); // 추가!
             return true;
         }
         else
         {
-            //돈부족시 처리
             Debug.Log("돈이 부족합니다");
             return false;
         }
@@ -57,21 +52,19 @@ public class MoneyManager : MonoBehaviour
     {
         CurrentMoney = amount;
         MoneyChanged?.Invoke(CurrentMoney);
+        SaveMoney(); // 추가!
     }
-    // 판매함수 예시
-    public void SellPotion(int PotionPrice)
-    {
-        MoneyManager.Instance.AddMoney(PotionPrice);
-        //기타 판매 처리(인벤토리 제거 등)
-    }
+
     public void SaveMoney()
     {
-        PlayerPrefs.SetInt("Money", MoneyManager.Instance.CurrentMoney);
+        Debug.Log("돈 저장: " + CurrentMoney);
+        PlayerPrefs.SetInt("Money", CurrentMoney);
         PlayerPrefs.Save();
     }
     public void LoadMoney()
     {
-        int money = PlayerPrefs.GetInt("Money", 0);
-        SetMoney(money);
+        int money = PlayerPrefs.GetInt("Money", 100); // 처음 설치시만 100
+        Debug.Log("돈 불러오기: " + money);
+        SetMoney(money); // SetMoney에서 이벤트+저장 모두 처리
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: "\uCCB4\uB825+30\uD3EC\uC158"
   icon: {fileID: 21300000, guid: e725e3bb69c4c459ba29d0e63674b8a5, type: 3}
-  Price: 0
+  Price: 100
   ingredients:
   - {fileID: 11400000, guid: 2406a76f71b5146dcb7d543eecb76281, type: 2}
   - {fileID: 11400000, guid: 373a396faa5684256a2e40383e72463a, type: 2}
