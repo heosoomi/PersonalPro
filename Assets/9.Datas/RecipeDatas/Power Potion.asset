@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e8631c4dea741bdbe16da6e5a2c8a3, type: 3}
+  m_Name: Power Potion
+  m_EditorClassIdentifier: 
+  recipeName: "\uCCB4\uB825+30\uD3EC\uC158"
+  icon: {fileID: 21300000, guid: f0a5e894269c14ded819fe9ab28eeaa1, type: 3}
+  Price: 100
+  ingredients:
+  - {fileID: 11400000, guid: 373a396faa5684256a2e40383e72463a, type: 2}
+  - {fileID: 11400000, guid: 373a396faa5684256a2e40383e72463a, type: 2}
+  baseCraftTime: 2
+  basePrice: 100
+  resultPotion: {fileID: 11400000, guid: b70e7e3a0ed124c539a988620a7cdd76, type: 2}
+  stirOrder: 00000000010000000000000001000000000000000100000002000000

@@ -379,7 +379,7 @@ MonoBehaviour:
   count: 10
   iconImage: {fileID: 1089431769117888143}
   countText: {fileID: 4192982487922670809}
-  recipeData: {fileID: 11400000, guid: 7cb1e8cea2eac4e90996796631b49612, type: 2}
+  portionData: {fileID: 11400000, guid: 3bf1d1e24693d4b59b9c369a518d673e, type: 2}
   darkOverlay: {fileID: 4280983525969068339}
 --- !u!114 &5861061625255819437
 MonoBehaviour:
@@ -394,3 +394,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portionImage: {fileID: 687350255167993022}
+  PortionData: {fileID: 11400000, guid: 3bf1d1e24693d4b59b9c369a518d673e, type: 2}
